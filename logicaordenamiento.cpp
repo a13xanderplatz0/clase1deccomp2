@@ -1,33 +1,35 @@
 #include <iostream>
-#include <algorithm> // para funcion sort y reverse para ordenar
-int main()
-   {
 
-    int a[]={2,4,6,8,10,1,3,5,7,9};
-    /*obtener tamaño del array*/
-    int tamañototal=sizeof(a);
-    int tamañoint=sizeof(int);
-    int tamañoarray=tamañototal/tamañoint;//numero de elementos
+int main() {
+    int a[] = {2,4,6,8,10,1,3,5,7,9};
+    int tamañoarray = sizeof(a)/sizeof(int);
     
-    std::cout<<"tamaño total: "<<tamañototal<<std::endl;
-    std::cout<<"tamaño int: "<<tamañoint<<std::endl;
-    std::cout<<"tamaño array: "<<tamañoarray<<std::endl;
-    std::cout<<""<<std::endl;
-    
-    std::cout<<"elementos sin ordenar: "<<std::endl;
+    // Mostrar array original
+    std::cout << "Array original: ";
+    for(int i = 0; i < tamañoarray; i++) {
+        std::cout << a[i] << " ";
+    }
+    std::cout << std::endl;
 
-    for(int i=0;i<tamañoarray;i++)
-    {
-        std::cout<<a[i]<<" " ;
+    // Ordenar usando lógica simple
+    for(int i = 0; i < tamañoarray; i++) {
+        for(int j = i + 1; j < tamañoarray; j++) {
+            // Si el número actual es mayor que el siguiente
+            // los intercambiamos
+            if(a[i] > a[j]) {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
     }
 
-    std::cout<<""<<std::endl;
-    std::cout<<"elementos ordenados: "<<std::endl;  
-    std::sort(a,a+tamañoarray);
-    for(int i=0;i<tamañoarray;i++)
-    {
-        std::cout<<a[i]<<" " ;
+    // Mostrar array ordenado
+    std::cout << "Array ordenado: ";
+    for(int i = 0; i < tamañoarray; i++) {
+        std::cout << a[i] << " ";
     }
+    std::cout << std::endl;
 
     return 0;
-   } 
+}
