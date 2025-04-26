@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+using namespace std;//
 
 void ordenarConPunteros(int *inicio, int *fin) {
     int *actual = inicio;
